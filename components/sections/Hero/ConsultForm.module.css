@@ -316,3 +316,32 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .form {
+    padding: 1.35rem 1.15rem;
+    border-radius: 18px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .sub {
+    font-size: 0.85rem;
+  }
+  .field input,
+  .field select {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.88rem;
+  }
+  .submit {
+    padding: 0.85rem;
+    font-size: 0.92rem;
+  }
+  .trust {
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+  .trust span {
+    font-size: 0.66rem;
+  }
+}

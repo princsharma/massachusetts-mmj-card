@@ -1,4 +1,5 @@
 import { Logo } from "./Logo";
+import { MobileMenu } from "./MobileMenu";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -61,6 +62,7 @@ export function Header() {
             <span>Get Started →</span>
           </a>
         </div>
+        <MobileMenu />
       </div>
     </nav>
   );

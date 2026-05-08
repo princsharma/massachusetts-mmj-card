@@ -135,3 +135,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .card {
+    padding: 1.85rem 1.5rem;
+  }
+  .number {
+    font-size: 3rem;
+    top: 1rem;
+    right: 1rem;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+}

@@ -69,3 +69,13 @@
 .centerCta {
   text-align: center;
 }
+
+@media (max-width: 480px) {
+  .primary,
+  .secondary {
+    padding: 0.95rem 1.4rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+}

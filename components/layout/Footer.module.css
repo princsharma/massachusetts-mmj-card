@@ -122,3 +122,21 @@
     grid-column: 1 / -1;
   }
 }
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 3.5rem 0 1.5rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 0.78rem;
+  }
+}

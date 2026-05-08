@@ -126,3 +126,24 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card {
+    padding: 1.75rem 1.5rem;
+  }
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+  .icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}

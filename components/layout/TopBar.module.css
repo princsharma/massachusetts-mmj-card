@@ -38,3 +38,13 @@
   border-radius: 6px;
   border: 1px solid rgba(109, 208, 129, 0.3);
 }
+
+@media (max-width: 640px) {
+  .bar {
+    font-size: 0.74rem;
+    padding: 0.55rem 0;
+  }
+  .bar > div > span {
+    gap: 0.4rem;
+  }
+}

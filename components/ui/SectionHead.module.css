@@ -48,3 +48,16 @@
   font-size: 1.05rem;
   line-height: 1.65;
 }
+
+@media (max-width: 640px) {
+  .head {
+    margin-bottom: 2.5rem;
+  }
+  .head p {
+    font-size: 0.95rem;
+  }
+  .eyebrow {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.85rem;
+  }
+}
