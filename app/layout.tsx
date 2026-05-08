@@ -93,17 +93,34 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "MedicalBusiness",
+      "@type": ["MedicalBusiness", "LocalBusiness"],
       "@id": `${SITE_URL}/#organization`,
-      name: "MassMMJ",
+      name: "Massachusetts Medical Marijuana Card",
+      alternateName: "MassMMJ",
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.jpg`,
+        width: 800,
+        height: 250,
+      },
+      image: `${SITE_URL}/logo.jpg`,
       description:
-        "Licensed Massachusetts medical marijuana card service offering online physician evaluations.",
+        "Licensed Massachusetts medical marijuana card service offering 100% online physician evaluations under the Massachusetts Medical Use of Marijuana Program.",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "MA",
+        addressCountry: "US",
+      },
       areaServed: { "@type": "State", name: "Massachusetts" },
       telephone: "+1-617-000-0000",
       email: "hello@massachusettsmedicalmarijuanascard.com",
-      priceRange: "$$",
+      priceRange: "$129 - $149",
+      medicalSpecialty: "MedicalSpecialty",
+      availableService: [
+        { "@id": `${SITE_URL}/#service-new` },
+        { "@id": `${SITE_URL}/#service-renewal` },
+      ],
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
@@ -111,17 +128,62 @@ const structuredData = {
         bestRating: "5",
         worstRating: "1",
       },
+      sameAs: [
+        // Replace with real handles when available
+        "https://twitter.com/massmmj",
+        "https://www.facebook.com/massmmj",
+        "https://www.instagram.com/massmmj",
+      ],
     },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "MassMMJ",
+      name: "Massachusetts Medical Marijuana Card",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-US",
     },
     {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#service-new`,
+      serviceType: "Medical Marijuana Evaluation",
+      name: "New MMJ Card Evaluation",
+      description:
+        "First-time applicant evaluation by a licensed Massachusetts physician with same-day appointments and a 100% money-back guarantee if not approved.",
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: { "@type": "State", name: "Massachusetts" },
+      audience: { "@type": "PatientAudience" },
+      offers: {
+        "@type": "Offer",
+        price: "149",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/#consult-form`,
+        category: "Medical Evaluation",
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#service-renewal`,
+      serviceType: "Medical Marijuana Renewal",
+      name: "MMJ Card Renewal",
+      description:
+        "Annual renewal evaluation for existing Massachusetts medical marijuana card holders, completed online with a state-licensed physician.",
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: { "@type": "State", name: "Massachusetts" },
+      audience: { "@type": "PatientAudience" },
+      offers: {
+        "@type": "Offer",
+        price: "129",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/#consult-form`,
+        category: "Medical Evaluation",
+      },
+    },
+    {
       "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
       mainEntity: [
         {
           "@type": "Question",
@@ -157,6 +219,14 @@ const structuredData = {
         },
         {
           "@type": "Question",
+          name: "How long does approval take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "After certification, patients can typically obtain a temporary registration quickly and begin purchasing while completing the process.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "How long is the Massachusetts MMJ card valid?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -165,10 +235,34 @@ const structuredData = {
         },
         {
           "@type": "Question",
+          name: "Where can I use my card?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "You can purchase medical cannabis from licensed dispensaries across Massachusetts.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What products are available?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Dispensaries offer oils, tinctures, edibles, flower, and other regulated cannabis products.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "Do patients pay taxes?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Medical cannabis is exempt from the state's recreational cannabis excise tax, reducing overall costs.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I have a caregiver?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Patients may designate a caregiver through the state program to assist with obtaining medical cannabis.",
           },
         },
       ],

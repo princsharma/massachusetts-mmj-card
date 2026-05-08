@@ -5,7 +5,7 @@ export function Header() {
   return (
     <nav className={styles.nav} aria-label="Primary">
       <div className={styles.inner}>
-        <Logo />
+        <Logo priority />
         <div className={styles.links}>
           <a href="#process">
             <svg
