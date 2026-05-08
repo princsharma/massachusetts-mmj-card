@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green: #2d7a3e;
+  --green-dark: #1e5a2e;
+  --green-darker: #143d20;
+  --green-light: #4a9a5a;
+  --green-pale: #e8f3ea;
+  --green-bright: #6dd081;
+  --green-glow: #88e89c;
+  --navy: #0a1f17;
+  --navy-light: #15302a;
+  --navy-medium: #1a3d2e;
+  --gray-900: #1a2e26;
+  --gray-700: #4a5a52;
+  --gray-500: #7a8a82;
+  --gray-300: #d8dfdb;
+  --gray-200: #e9eeeb;
+  --gray-100: #f4f7f5;
+  --white: #fff;
+  --bg: #f6faf7;
+  --gold: #f5b700;
+  --gold-light: #ffd54f;
+  --shadow-sm: 0 2px 8px rgba(13, 31, 26, 0.06);
+  --shadow-md: 0 8px 24px rgba(13, 31, 26, 0.08);
+  --shadow-lg: 0 20px 60px rgba(13, 31, 26, 0.12);
+  --shadow-xl: 0 30px 80px rgba(13, 31, 26, 0.18);
+  --shadow-green: 0 20px 50px rgba(45, 122, 62, 0.25);
+  --gradient-hero: linear-gradient(135deg, #e8f5ec 0%, #c5e0cd 35%, #9dc8a8 70%, #7eb18d 100%);
+  --gradient-mesh: radial-gradient(circle at 20% 30%, rgba(109, 208, 129, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(74, 154, 90, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(200, 228, 210, 0.5) 0%, transparent 60%);
+  --gradient-cta: linear-gradient(135deg, #4a9a5a 0%, #2d7a3e 50%, #1e5a2e 100%);
+  --gradient-text: linear-gradient(135deg, #2d7a3e 0%, #4a9a5a 50%, #6dd081 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #f4faf6 100%);
+  --gradient-dark: linear-gradient(160deg, #0d1f1a 0%, #143d20 100%);
+
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--gray-900);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Shared keyframes (used by multiple components) ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -20px) rotate(5deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

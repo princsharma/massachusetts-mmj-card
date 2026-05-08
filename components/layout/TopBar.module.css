@@ -1,0 +1,40 @@
+.bar {
+  background: linear-gradient(90deg, #0a1f17 0%, #143d20 50%, #0a1f17 100%);
+  background-size: 200% 100%;
+  animation: shimmer 8s linear infinite;
+  color: #fff;
+  padding: 0.65rem 0;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+.bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(109, 208, 129, 0.15), transparent);
+  background-size: 50% 100%;
+  animation: shimmer 4s linear infinite;
+}
+.bar > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.pipe {
+  opacity: 0.4;
+}
+.accent {
+  color: var(--green-bright);
+  font-weight: 700;
+  background: rgba(109, 208, 129, 0.15);
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(109, 208, 129, 0.3);
+}
