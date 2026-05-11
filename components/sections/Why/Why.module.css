@@ -49,7 +49,7 @@
 }
 
 .imgWrap {
-  height: 220px;
+  aspect-ratio: 365 / 200;
   position: relative;
   overflow: hidden;
   background: var(--green-pale, #eaf3ed);
@@ -135,9 +135,6 @@
   .section {
     padding: 4rem 0;
   }
-  .imgWrap {
-    height: 200px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -147,9 +144,6 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-  .imgWrap {
-    height: 180px;
   }
   .body {
     padding: 1.35rem;
