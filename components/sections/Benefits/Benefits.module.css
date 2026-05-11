@@ -58,7 +58,7 @@
   font-family: var(--font-serif);
   font-size: 4rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.25);
   font-style: italic;
   line-height: 1;
   z-index: 1;

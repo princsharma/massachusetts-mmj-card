@@ -68,7 +68,7 @@ export function Trust() {
             />
             <div className={styles.overlay}>
               <div className={styles.icon}>{PhotoUserIcon}</div>
-              <h4>Licensed MA Physicians</h4>
+              <h3>Licensed MA Physicians</h3>
               <p>
                 Massachusetts-certified doctors specialized in medical cannabis
                 evaluations.
@@ -89,7 +89,7 @@ export function Trust() {
             />
             <div className={styles.overlay}>
               <div className={styles.icon}>{PhotoVideoIcon}</div>
-              <h4>Online Consultations</h4>
+              <h3>Online Consultations</h3>
               <p>Secure HIPAA-compliant appointments from your home.</p>
             </div>
           </article>
@@ -106,7 +106,7 @@ export function Trust() {
               <div className={styles.icon}>
                 <LockIcon strokeWidth={2} />
               </div>
-              <h4>100% Confidential</h4>
+              <h3>100% Confidential</h3>
               <p>Secure platform that protects every detail.</p>
             </div>
           </article>
@@ -117,21 +117,21 @@ export function Trust() {
             <div className={styles.badgeIcon}>
               <ClockIcon strokeWidth={2} />
             </div>
-            <h5>24-Hour Appointments</h5>
+            <h4>24-Hour Appointments</h4>
             <p>Flexible scheduling</p>
           </div>
           <div className={styles.badge}>
             <div className={styles.badgeIcon}>
               <LockIcon strokeWidth={2} />
             </div>
-            <h5>100% Confidential</h5>
+            <h4>100% Confidential</h4>
             <p>Secure platform</p>
           </div>
           <div className={styles.badge}>
             <div className={styles.badgeIcon}>
               <MedalIcon />
             </div>
-            <h5>Licensed Doctors</h5>
+            <h4>Licensed Doctors</h4>
             <p>Massachusetts-certified physicians</p>
           </div>
         </div>

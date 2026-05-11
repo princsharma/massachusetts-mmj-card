@@ -152,9 +152,9 @@ export function ConsultForm() {
           <ShieldCheckIcon strokeWidth={2} />
         </div>
 
-        <h3 className={styles.title}>
+        <h2 className={styles.title}>
           Get Started <em>Today</em>
-        </h3>
+        </h2>
         <p className={styles.sub}>
           Begin your evaluation by completing the form below.
         </p>

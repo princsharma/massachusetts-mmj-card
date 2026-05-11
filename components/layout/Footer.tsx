@@ -54,7 +54,7 @@ export function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h5>Quick Links</h5>
+            <h3>Quick Links</h3>
             {quickLinks.map((link) => (
               <a key={link.label} href={link.href}>
                 <ChevronRightIcon />
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h5>Resources</h5>
+            <h3>Resources</h3>
             {resources.map((link) => (
               <a key={link.label} href={link.href}>
                 <ChevronRightIcon />
@@ -74,7 +74,7 @@ export function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h5>Contact</h5>
+            <h3>Contact</h3>
             <a href="tel:617-000-0000">
               <PhoneIcon />
               (617) 000-0000
