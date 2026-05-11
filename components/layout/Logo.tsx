@@ -12,17 +12,19 @@ export function Logo({
   ariaLabel?: string;
   priority?: boolean;
 }) {
-  const imgClass = variant === "dark" ? styles.imageDark : styles.image;
+  const isDark = variant === "dark";
+  const imgClass = isDark ? styles.imageDark : styles.image;
+  const src = isDark ? "/massachutts-white.webp" : "/massachutts.webp";
   return (
     <a href={href} className={styles.logo} aria-label={ariaLabel}>
       <Image
-        src="/logo.jpg"
+        src={src}
         alt="Massachusetts Medical Marijuana Card"
-        width={800}
-        height={250}
+        width={1532}
+        height={426}
         priority={priority}
         className={imgClass}
-        sizes="220px"
+        sizes="(max-width: 640px) 140px, 180px"
       />
     </a>
   );

@@ -18,10 +18,6 @@
   height: 48px;
   width: auto;
   display: block;
-  background: #fff;
-  border-radius: 8px;
-  padding: 4px 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .icon {

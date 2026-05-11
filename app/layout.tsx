@@ -100,11 +100,11 @@ const structuredData = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.jpg`,
-        width: 800,
-        height: 250,
+        url: `${SITE_URL}/massachutts.webp`,
+        width: 1532,
+        height: 426,
       },
-      image: `${SITE_URL}/logo.jpg`,
+      image: `${SITE_URL}/massachutts.webp`,
       description:
         "Licensed Massachusetts medical marijuana card service offering 100% online physician evaluations under the Massachusetts Medical Use of Marijuana Program.",
       address: {
