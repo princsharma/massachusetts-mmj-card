@@ -290,23 +290,6 @@
   color: var(--green);
 }
 
-.success {
-  display: none;
-  background: linear-gradient(135deg, #e8f3ea 0%, #d4e8d8 100%);
-  border: 2px solid var(--green-bright);
-  color: var(--green-dark);
-  padding: 1.25rem;
-  border-radius: 12px;
-  margin-top: 1rem;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(45, 122, 62, 0.15);
-}
-.success.show {
-  display: block;
-  animation: fadeUp 0.4s ease;
-}
 
 @media (max-width: 980px) {
   .floatingIcon {

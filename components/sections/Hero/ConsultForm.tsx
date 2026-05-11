@@ -7,26 +7,22 @@ import {
   ClockIcon,
   LockIcon,
   MailIcon,
-  MapPinIcon,
   PhoneIcon,
   ShieldCheckIcon,
   UserIcon,
 } from "../../ui/icons";
 import styles from "./ConsultForm.module.css";
 
-const ACTIVITY_ICON = (
-  <svg
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-  </svg>
-);
+const STATE = {
+  stateAbbr: "MA",
+  stateName: "Massachusetts",
+  city: "Boston",
+  timezone: "EST",
+} as const;
+
+const UTM_SOURCE = "massachusettsmedicalmarijuanascard";
+
+const HEALLY_PREFILL_URL = "https://mymmj.getheally.com/patient_admin/prefill";
 
 const ErrorIcon = (
   <svg
@@ -44,17 +40,6 @@ const ErrorIcon = (
   </svg>
 );
 
-const conditions = [
-  "Chronic Pain",
-  "Anxiety / PTSD",
-  "Cancer",
-  "Glaucoma",
-  "Crohn's Disease",
-  "Multiple Sclerosis",
-  "Migraines",
-  "Other",
-];
-
 const consultSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(60, "Too long"),
   lastName: z.string().trim().min(1, "Last name is required").max(60, "Too long"),
@@ -62,11 +47,10 @@ const consultSchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(7, "Enter a valid phone number")
-    .max(12, "Phone must be 12 characters or fewer")
-    .regex(/^[0-9+\-()\s.]+$/, "Use digits, spaces, and ( ) + - . only"),
-  state: z.enum(["MA", "other"]),
-  condition: z.string().min(1, "Please select a condition"),
+    .regex(
+      /^[2-9]\d{2}-[2-9]\d{2}-\d{4}$/,
+      "Enter a valid US phone number (e.g. 617-555-0123)"
+    ),
   terms: z.string().min(1, "Please accept the Terms and Privacy Policy"),
 });
 
@@ -125,14 +109,40 @@ export function ConsultForm() {
     }
 
     setErrors({});
-    const submission = { ...result.data, submittedAt: new Date().toISOString() };
-    console.log("[ConsultForm] submitted:", submission);
-
     setSubmitted(true);
-    window.setTimeout(() => {
-      form.reset();
-      setSubmitted(false);
-    }, 5000);
+
+    const { firstName, lastName, email, phone } = result.data;
+    const payload = {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone,
+      state: STATE.stateAbbr,
+      state_of_evaluation: STATE.stateAbbr,
+      timezone: STATE.timezone,
+      city: STATE.city,
+      extra_data: {
+        "contact[contact_type]": "Web Form",
+        "product[name]": "Eva",
+        utm_source: UTM_SOURCE,
+      },
+    };
+
+    const preset = btoa(JSON.stringify(payload))
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=+$/, "");
+
+    const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({
+      event: "heallyValidatedSubmit",
+      utm_source: UTM_SOURCE,
+    });
+
+    window.location.assign(
+      `${HEALLY_PREFILL_URL}?redirect=sched&preset=${preset}&utm_source=${UTM_SOURCE}`
+    );
   };
 
   return (
@@ -214,76 +224,35 @@ export function ConsultForm() {
             ) : null}
           </div>
 
-          <div className={styles.row}>
-            <div className={fieldClass("phone")}>
-              <label htmlFor="phone">
-                <PhoneIcon /> Phone
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                placeholder="617-555-0000"
-                autoComplete="tel"
-                maxLength={12}
-                inputMode="tel"
-                aria-invalid={errors.phone ? true : undefined}
-                aria-describedby={errors.phone ? errId("phone") : undefined}
-              />
-              {errors.phone ? (
-                <p id={errId("phone")} className={styles.errorMsg} role="alert">
-                  {ErrorIcon}
-                  {errors.phone}
-                </p>
-              ) : null}
-            </div>
-            <div className={fieldClass("state")}>
-              <label htmlFor="state">
-                <MapPinIcon /> State
-              </label>
-              <select
-                id="state"
-                name="state"
-                defaultValue="MA"
-                aria-invalid={errors.state ? true : undefined}
-                aria-describedby={errors.state ? errId("state") : undefined}
-              >
-                <option value="MA">Massachusetts</option>
-                <option value="other">Other State</option>
-              </select>
-              {errors.state ? (
-                <p id={errId("state")} className={styles.errorMsg} role="alert">
-                  {ErrorIcon}
-                  {errors.state}
-                </p>
-              ) : null}
-            </div>
-          </div>
-
-          <div className={fieldClass("condition")}>
-            <label htmlFor="condition">
-              {ACTIVITY_ICON} Primary Condition
+          <div className={fieldClass("phone")}>
+            <label htmlFor="phone">
+              <PhoneIcon /> Phone
             </label>
-            <select
-              id="condition"
-              name="condition"
-              defaultValue=""
-              aria-invalid={errors.condition ? true : undefined}
-              aria-describedby={errors.condition ? errId("condition") : undefined}
-            >
-              <option value="" disabled>
-                — Select your condition —
-              </option>
-              {conditions.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-            {errors.condition ? (
-              <p id={errId("condition")} className={styles.errorMsg} role="alert">
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              placeholder="999-999-9999"
+              autoComplete="tel"
+              maxLength={12}
+              inputMode="numeric"
+              onChange={(e) => {
+                const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                let formatted = digits;
+                if (digits.length >= 7) {
+                  formatted = `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+                } else if (digits.length >= 4) {
+                  formatted = `${digits.slice(0, 3)}-${digits.slice(3)}`;
+                }
+                e.target.value = formatted;
+              }}
+              aria-invalid={errors.phone ? true : undefined}
+              aria-describedby={errors.phone ? errId("phone") : undefined}
+            />
+            {errors.phone ? (
+              <p id={errId("phone")} className={styles.errorMsg} role="alert">
                 {ErrorIcon}
-                {errors.condition}
+                {errors.phone}
               </p>
             ) : null}
           </div>
@@ -321,7 +290,7 @@ export function ConsultForm() {
             aria-live="polite"
           >
             {submitted ? (
-              "✓ Submitted Successfully"
+              "Redirecting…"
             ) : (
               <>
                 Continue to Evaluation
@@ -329,14 +298,6 @@ export function ConsultForm() {
               </>
             )}
           </button>
-
-          <div
-            className={`${styles.success}${submitted ? ` ${styles.show}` : ""}`}
-            role="status"
-            aria-live="polite"
-          >
-            ✓ Thank you! Form data has been logged to the console.
-          </div>
         </form>
 
         <div className={styles.trust}>

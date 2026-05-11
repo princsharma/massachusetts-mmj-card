@@ -116,7 +116,7 @@ const cards: Card[] = [
   },
   {
     tag: "Support",
-    img: "/why/patient-support.webp",
+    img: "/why/ongoing-support.webp",
     alt: "Friendly patient support team",
     icon: ChatIcon,
     title: "Patient Support",
