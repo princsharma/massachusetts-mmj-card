@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     },
   },
   category: "health",
+  verification: {
+    google: "4W6PhPEcf_7MB9oT5l7xnrBvl2qHI1vPZiIS-R33pWU",
+  },
 };
 
 export const viewport: Viewport = {
