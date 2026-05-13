@@ -79,9 +79,9 @@ export function Footer() {
               <PhoneIcon />
               (617) 000-0000
             </a>
-            <a href="mailto:hello@massachusettsmedicalmarijuanascard.com">
+            <a href="mailto:contact@medicalmarijuanacardmassachusetts.com">
               <MailIcon />
-              hello@massachusettsmedicalmarijuanascard.com
+              contact@medicalmarijuanacardmassachusetts.com
             </a>
             <a href="#">
               <MapPinIcon />

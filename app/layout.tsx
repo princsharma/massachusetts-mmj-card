@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -22,13 +23,14 @@ const SITE_URL = "https://massachusettsmedicalmarijuanascard.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Massachusetts MMJ — Premium Medical Marijuana Card Service",
+    default: "Apply Your Medical Marijuana Card Massachusetts",
     template: "%s · MassMMJ",
   },
   description:
-    "Get your Massachusetts medical marijuana card online. Connect with licensed MA physicians for a 100% online evaluation — same-day appointments, 98% approval rate, fully HIPAA-compliant.",
+    "Apply for a Massachusetts medical marijuana card online with licensed physicians, private evaluations, and reliable support.",
   applicationName: "MassMMJ",
   keywords: [
+    "Medical Marijuana Card Massachusetts",
     "Massachusetts medical marijuana card",
     "MMJ card MA",
     "medical cannabis Massachusetts",
@@ -45,23 +47,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "MassMMJ",
-    title: "Massachusetts MMJ — Premium Medical Marijuana Card Service",
+    title: "Apply Your Medical Marijuana Card Massachusetts",
     description:
-      "Connect with licensed Massachusetts physicians for a 100% online evaluation. Same-day appointments, 98% approval rate, complete confidentiality.",
+      "Apply for a Massachusetts medical marijuana card online with licensed physicians, private evaluations, and reliable support.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MassMMJ — Massachusetts Medical Marijuana Card Service",
+        alt: "Massachusetts Medical Marijuana Card — apply online",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Massachusetts MMJ — Premium Medical Marijuana Card Service",
+    title: "Apply Your Medical Marijuana Card Massachusetts",
     description:
-      "Get your Massachusetts medical marijuana card online with licensed physicians. 98% approval, same-day appointments.",
+      "Apply for a Massachusetts medical marijuana card online with licensed physicians, private evaluations, and reliable support.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -117,7 +119,7 @@ const structuredData = {
       },
       areaServed: { "@type": "State", name: "Massachusetts" },
       telephone: "+1-617-000-0000",
-      email: "hello@massachusettsmedicalmarijuanascard.com",
+      email: "contact@medicalmarijuanacardmassachusetts.com",
       priceRange: "$129 - $149",
       medicalSpecialty: "MedicalSpecialty",
       availableService: [
@@ -285,6 +287,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
+      <GoogleTagManager gtmId="GTM-TZ9JZJCG" />
       <body>{children}</body>
     </html>
   );
