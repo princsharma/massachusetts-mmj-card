@@ -43,6 +43,11 @@ export const metadata: Metadata = {
   creator: "MassMMJ",
   publisher: "MassMMJ",
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/massachusetss-favicon.webp", type: "image/webp" }],
+    shortcut: [{ url: "/massachusetss-favicon.webp", type: "image/webp" }],
+    apple: [{ url: "/massachusetss-favicon.webp", type: "image/webp" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
