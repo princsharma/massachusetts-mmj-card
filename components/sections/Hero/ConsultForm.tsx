@@ -41,8 +41,12 @@ const ErrorIcon = (
 );
 
 const consultSchema = z.object({
-  firstName: z.string().trim().min(1, "First name is required").max(60, "Too long"),
-  lastName: z.string().trim().min(1, "Last name is required").max(60, "Too long"),
+  name: z
+    .string()
+    .trim()
+    .min(1, "Full name is required")
+    .max(120, "Too long")
+    .regex(/^\S+(\s+\S+)+$/, "Please enter your first and last name"),
   email: z.string().trim().min(1, "Email is required").email("Enter a valid email address"),
   phone: z
     .string()
@@ -111,7 +115,10 @@ export function ConsultForm() {
     setErrors({});
     setSubmitted(true);
 
-    const { firstName, lastName, email, phone } = result.data;
+    const { name, email, phone } = result.data;
+    const nameParts = name.trim().split(/\s+/);
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(" ");
     const payload = {
       first_name: firstName,
       last_name: lastName,
@@ -160,47 +167,25 @@ export function ConsultForm() {
         </p>
 
         <form onSubmit={handleSubmit} onChange={handleChange} noValidate>
-          <div className={styles.row}>
-            <div className={fieldClass("firstName")}>
-              <label htmlFor="firstName">
-                <UserIcon /> First Name
-              </label>
-              <input
-                id="firstName"
-                type="text"
-                name="firstName"
-                placeholder="John"
-                autoComplete="given-name"
-                aria-invalid={errors.firstName ? true : undefined}
-                aria-describedby={errors.firstName ? errId("firstName") : undefined}
-              />
-              {errors.firstName ? (
-                <p id={errId("firstName")} className={styles.errorMsg} role="alert">
-                  {ErrorIcon}
-                  {errors.firstName}
-                </p>
-              ) : null}
-            </div>
-            <div className={fieldClass("lastName")}>
-              <label htmlFor="lastName">
-                <UserIcon /> Last Name
-              </label>
-              <input
-                id="lastName"
-                type="text"
-                name="lastName"
-                placeholder="Doe"
-                autoComplete="family-name"
-                aria-invalid={errors.lastName ? true : undefined}
-                aria-describedby={errors.lastName ? errId("lastName") : undefined}
-              />
-              {errors.lastName ? (
-                <p id={errId("lastName")} className={styles.errorMsg} role="alert">
-                  {ErrorIcon}
-                  {errors.lastName}
-                </p>
-              ) : null}
-            </div>
+          <div className={fieldClass("name")}>
+            <label htmlFor="name">
+              <UserIcon /> Full Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              autoComplete="name"
+              aria-invalid={errors.name ? true : undefined}
+              aria-describedby={errors.name ? errId("name") : undefined}
+            />
+            {errors.name ? (
+              <p id={errId("name")} className={styles.errorMsg} role="alert">
+                {ErrorIcon}
+                {errors.name}
+              </p>
+            ) : null}
           </div>
 
           <div className={fieldClass("email")}>
