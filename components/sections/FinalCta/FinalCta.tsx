@@ -16,7 +16,8 @@ export function FinalCta() {
       <div className={styles.bgImage} aria-hidden="true">
         <Image
           src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1600&auto=format&fit=crop&q=80"
-          alt=""
+          alt="Massachusetts Medical Marijuana Card consultation backdrop"
+          title="Book your Massachusetts MMJ consultation"
           fill
           sizes="100vw"
           loading="lazy"
@@ -37,7 +38,11 @@ export function FinalCta() {
             Schedule a secure online consultation with a licensed physician and
             begin your evaluation with confidence.
           </p>
-          <a href="#consult-form" className={styles.cta}>
+          <a
+            href="#consult-form"
+            className={styles.cta}
+            title="Book your Massachusetts Medical Marijuana Card appointment"
+          >
             Book Your Appointment Now
             <ArrowRightIcon />
           </a>

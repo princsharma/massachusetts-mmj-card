@@ -74,7 +74,8 @@ export function Testimonials() {
                 <div className={styles.authorInfo}>
                   <Image
                     src={t.avatar}
-                    alt={`Photo of ${t.name}`}
+                    alt={`Photo of ${t.name}, verified Massachusetts Medical Marijuana Card patient`}
+                    title={`${t.name} — verified patient`}
                     width={48}
                     height={48}
                     className={styles.avatar}

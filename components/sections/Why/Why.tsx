@@ -68,6 +68,7 @@ type Card = {
   tag: string;
   img: string;
   alt: string;
+  imgTitle: string;
   icon: ReactNode;
   title: string;
   desc: string;
@@ -77,7 +78,8 @@ const cards: Card[] = [
   {
     tag: "Licensed",
     img: "/why/state-licensed-physicians.webp",
-    alt: "State-licensed Massachusetts physician",
+    alt: "State-licensed Massachusetts physician issuing a Medical Marijuana Card",
+    imgTitle: "State-licensed physicians",
     icon: GraduationIcon,
     title: "State-Licensed Physicians",
     desc: "Get evaluated by certified doctors authorized under Massachusetts medical cannabis laws.",
@@ -85,7 +87,8 @@ const cards: Card[] = [
   {
     tag: "Online",
     img: "/why/online-evaluations.webp",
-    alt: "Patient on a secure online evaluation",
+    alt: "Patient on a secure online Massachusetts Medical Marijuana Card evaluation",
+    imgTitle: "Online MMJ evaluations",
     icon: VideoIcon,
     title: "Convenient Online Evaluations",
     desc: "Skip clinic visits and complete your consultation quickly from anywhere, on your schedule.",
@@ -93,7 +96,8 @@ const cards: Card[] = [
   {
     tag: "Trusted",
     img: "/why/trusted-process.webp",
-    alt: "Trusted, state-compliant evaluation process",
+    alt: "Trusted, state-compliant Massachusetts Medical Marijuana Card evaluation process",
+    imgTitle: "Trusted MMJ process",
     icon: <ShieldCheckIcon strokeWidth={2} />,
     title: "Trusted Process",
     desc: "Built around strict state standards, ensuring a smooth and legally compliant experience.",
@@ -101,7 +105,8 @@ const cards: Card[] = [
   {
     tag: "Honest",
     img: "/why/transparent-pricing.webp",
-    alt: "Transparent pricing, no hidden fees",
+    alt: "Transparent Massachusetts Medical Marijuana Card pricing with no hidden fees",
+    imgTitle: "Transparent MMJ pricing",
     icon: DollarIcon,
     title: "Transparent Pricing",
     desc: "Know exactly what you'll pay before you begin — simple, honest, and upfront.",
@@ -109,7 +114,8 @@ const cards: Card[] = [
   {
     tag: "Secure",
     img: "/why/secure-confidential.webp",
-    alt: "Secure and HIPAA-compliant platform",
+    alt: "Secure, HIPAA-compliant Massachusetts Medical Marijuana Card platform",
+    imgTitle: "Secure & confidential platform",
     icon: <LockIcon strokeWidth={2} />,
     title: "Secure & Confidential",
     desc: "Your data is protected by a HIPAA-compliant system that meets the highest standards of privacy.",
@@ -117,7 +123,8 @@ const cards: Card[] = [
   {
     tag: "Support",
     img: "/why/ongoing-support.webp",
-    alt: "Friendly patient support team",
+    alt: "Friendly Massachusetts Medical Marijuana Card patient support team",
+    imgTitle: "Patient support team",
     icon: ChatIcon,
     title: "Patient Support",
     desc: "Friendly support is always available to answer questions and guide you forward.",
@@ -148,6 +155,7 @@ export function Why() {
                 <Image
                   src={c.img}
                   alt={c.alt}
+                  title={c.imgTitle}
                   fill
                   sizes="(max-width: 980px) 100vw, 33vw"
                   loading="lazy"

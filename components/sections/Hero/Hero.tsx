@@ -54,11 +54,19 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <Button href="#consult-form" variant="primary">
+            <Button
+              href="#consult-form"
+              variant="primary"
+              title="Start your Massachusetts Medical Marijuana Card application"
+            >
               Start Application
               <ArrowRightIcon />
             </Button>
-            <Button href="#process" variant="secondary">
+            <Button
+              href="#process"
+              variant="secondary"
+              title="See how the Massachusetts Medical Marijuana Card process works"
+            >
               <PlayIcon />
               How It Works
             </Button>

@@ -126,7 +126,11 @@ export function Steps() {
         </div>
 
         <CenterCta>
-          <Button href="#consult-form" variant="primary">
+          <Button
+            href="#consult-form"
+            variant="primary"
+            title="Consult a Massachusetts MMJ doctor and apply for your Medical Marijuana Card"
+          >
             Consult With a Massachusetts MMJ Doctor
             <ArrowRightIcon />
           </Button>

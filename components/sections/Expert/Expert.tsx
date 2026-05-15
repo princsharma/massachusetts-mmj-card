@@ -36,7 +36,8 @@ export function Expert() {
             <div className={styles.image}>
               <Image
                 src="/expert/licensed-ma-professionals.webp"
-                alt="Licensed Massachusetts medical professional"
+                alt="Licensed Massachusetts physician evaluating a Medical Marijuana Card applicant"
+                title="Licensed Massachusetts MMJ physicians"
                 fill
                 sizes="(max-width: 980px) 100vw, 50vw"
                 loading="lazy"
@@ -131,7 +132,11 @@ export function Expert() {
               </div>
             </div>
 
-            <Button href="#consult-form" variant="primary">
+            <Button
+              href="#consult-form"
+              variant="primary"
+              title="Start your Massachusetts Medical Marijuana Card journey today"
+            >
               Start Your Journey Today
               <ArrowRightIcon />
             </Button>

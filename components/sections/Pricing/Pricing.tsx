@@ -36,6 +36,7 @@ type Plan = {
   period: string;
   features: string[];
   cta: string;
+  ctaTitle: string;
   featured?: boolean;
 };
 
@@ -53,6 +54,7 @@ const plans: Plan[] = [
       "24/7 Patient Support",
     ],
     cta: "Apply for Your Card",
+    ctaTitle: "Apply for your Massachusetts Medical Marijuana Card",
     featured: true,
   },
   {
@@ -68,6 +70,7 @@ const plans: Plan[] = [
       "24/7 Patient Support",
     ],
     cta: "Renew Your Card",
+    ctaTitle: "Renew your Massachusetts Medical Marijuana Card",
   },
 ];
 
@@ -100,7 +103,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           </li>
         ))}
       </ul>
-      <a href="#consult-form" className={styles.cta}>
+      <a href="#consult-form" className={styles.cta} title={plan.ctaTitle}>
         {plan.cta}
         <ArrowRightIcon width={16} height={16} />
       </a>

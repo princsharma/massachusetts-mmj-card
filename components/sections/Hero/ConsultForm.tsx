@@ -256,8 +256,8 @@ export function ConsultForm() {
               aria-describedby={errors.terms ? errId("terms") : undefined}
             />
             <span>
-              I agree to the <a href="#">Terms of Service</a> and{" "}
-              <a href="#">Privacy Policy</a>. All consultations are HIPAA
+              I agree to the <a href="#" title="Terms of Service">Terms of Service</a> and{" "}
+              <a href="#" title="Privacy Policy">Privacy Policy</a>. All consultations are HIPAA
               compliant.
             </span>
           </label>

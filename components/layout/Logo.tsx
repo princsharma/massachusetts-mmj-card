@@ -16,10 +16,16 @@ export function Logo({
   const imgClass = isDark ? styles.imageDark : styles.image;
   const src = isDark ? "/massachutts-white.webp" : "/massachutts.webp";
   return (
-    <a href={href} className={styles.logo} aria-label={ariaLabel}>
+    <a
+      href={href}
+      className={styles.logo}
+      aria-label={ariaLabel}
+      title="Massachusetts Medical Marijuana Card — home"
+    >
       <Image
         src={src}
-        alt="Massachusetts Medical Marijuana Card"
+        alt="Massachusetts Medical Marijuana Card logo"
+        title="Massachusetts Medical Marijuana Card"
         width={1532}
         height={426}
         priority={priority}

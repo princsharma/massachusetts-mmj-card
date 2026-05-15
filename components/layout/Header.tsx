@@ -8,7 +8,7 @@ export function Header() {
       <div className={styles.inner}>
         <Logo priority />
         <div className={styles.links}>
-          <a href="#process">
+          <a href="#process" title="How the Massachusetts Medical Marijuana Card process works">
             <svg
               width="16"
               height="16"
@@ -24,7 +24,7 @@ export function Header() {
             </svg>
             How It Works
           </a>
-          <a href="#pricing">
+          <a href="#pricing" title="Massachusetts Medical Marijuana Card pricing">
             <svg
               width="16"
               height="16"
@@ -41,7 +41,7 @@ export function Header() {
             </svg>
             Pricing
           </a>
-          <a href="#faq">
+          <a href="#faq" title="Frequently asked questions about the Massachusetts MMJ card">
             <svg
               width="16"
               height="16"
@@ -58,7 +58,11 @@ export function Header() {
             </svg>
             FAQ
           </a>
-          <a href="#consult-form" className={styles.cta}>
+          <a
+            href="#consult-form"
+            className={styles.cta}
+            title="Start your Massachusetts Medical Marijuana Card application"
+          >
             <span>Get Started →</span>
           </a>
         </div>

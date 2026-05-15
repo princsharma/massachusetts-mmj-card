@@ -38,7 +38,11 @@ export function Conditions() {
         <ConditionsClient />
 
         <div className={styles.cta}>
-          <Button href="#consult-form" variant="primary">
+          <Button
+            href="#consult-form"
+            variant="primary"
+            title="Check your eligibility for a Massachusetts Medical Marijuana Card"
+          >
             Check Your Eligibility
             <ArrowRightIcon />
           </Button>

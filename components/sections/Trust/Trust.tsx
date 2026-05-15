@@ -61,7 +61,8 @@ export function Trust() {
           <article className={styles.photo}>
             <Image
               src="/trust/licensed-ma-physicians.webp"
-              alt="Licensed Massachusetts physician consultation"
+              alt="Licensed Massachusetts physician conducting a Medical Marijuana Card consultation"
+              title="Licensed MA physicians"
               fill
               sizes="(max-width: 980px) 100vw, 40vw"
               loading="lazy"
@@ -82,7 +83,8 @@ export function Trust() {
           <article className={styles.photo}>
             <Image
               src="/trust/online-consultations.webp"
-              alt="Patient on a secure online consultation"
+              alt="Patient on a secure online Massachusetts Medical Marijuana Card consultation"
+              title="Online MMJ consultations"
               fill
               sizes="(max-width: 980px) 100vw, 30vw"
               loading="lazy"
@@ -97,7 +99,8 @@ export function Trust() {
           <article className={styles.photo}>
             <Image
               src="/trust/confidential.webp"
-              alt="Confidential and secure platform"
+              alt="Confidential and HIPAA-compliant Medical Marijuana Card platform"
+              title="100% confidential platform"
               fill
               sizes="(max-width: 980px) 100vw, 30vw"
               loading="lazy"
@@ -138,11 +141,19 @@ export function Trust() {
 
         <CenterCta>
           <div className={styles.ctaRow}>
-            <Button href="#consult-form" variant="primary">
+            <Button
+              href="#consult-form"
+              variant="primary"
+              title="Schedule your Massachusetts Medical Marijuana Card consultation"
+            >
               Schedule Consultation
               <ArrowRightIcon />
             </Button>
-            <Button href="#process" variant="secondary">
+            <Button
+              href="#process"
+              variant="secondary"
+              title="Learn how the Massachusetts Medical Marijuana Card process works"
+            >
               Learn More
             </Button>
           </div>

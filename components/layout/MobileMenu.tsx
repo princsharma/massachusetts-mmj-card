@@ -4,7 +4,12 @@ import { useEffect, useId, useState } from "react";
 import { ArrowRightIcon } from "../ui/icons";
 import styles from "./MobileMenu.module.css";
 
-type LinkItem = { href: string; label: string; icon?: React.ReactNode };
+type LinkItem = {
+  href: string;
+  label: string;
+  title: string;
+  icon?: React.ReactNode;
+};
 
 const ProcessIcon = (
   <svg
@@ -49,9 +54,24 @@ const FaqIcon = (
 );
 
 const links: LinkItem[] = [
-  { href: "#process", label: "How It Works", icon: ProcessIcon },
-  { href: "#pricing", label: "Pricing", icon: PriceIcon },
-  { href: "#faq", label: "FAQ", icon: FaqIcon },
+  {
+    href: "#process",
+    label: "How It Works",
+    title: "How the Massachusetts Medical Marijuana Card process works",
+    icon: ProcessIcon,
+  },
+  {
+    href: "#pricing",
+    label: "Pricing",
+    title: "Massachusetts Medical Marijuana Card pricing",
+    icon: PriceIcon,
+  },
+  {
+    href: "#faq",
+    label: "FAQ",
+    title: "Frequently asked questions about the Massachusetts MMJ card",
+    icon: FaqIcon,
+  },
 ];
 
 export function MobileMenu() {
@@ -134,13 +154,24 @@ export function MobileMenu() {
         </div>
 
         {links.map((l) => (
-          <a key={l.href} href={l.href} className={styles.link} onClick={close}>
+          <a
+            key={l.href}
+            href={l.href}
+            className={styles.link}
+            title={l.title}
+            onClick={close}
+          >
             {l.icon}
             {l.label}
           </a>
         ))}
 
-        <a href="#consult-form" className={styles.cta} onClick={close}>
+        <a
+          href="#consult-form"
+          className={styles.cta}
+          title="Start your Massachusetts Medical Marijuana Card application"
+          onClick={close}
+        >
           Get Started <ArrowRightIcon width={16} height={16} />
         </a>
       </aside>
