@@ -115,7 +115,7 @@ export function Steps() {
         <div className={styles.grid}>
           {steps.map((s, i) => (
             <article key={s.title} className={styles.card}>
-              <div className={styles.num} aria-label={`Step ${i + 1}`}>
+              <div className={styles.num} role="img" aria-label={`Step ${i + 1}`}>
                 {s.num}
               </div>
               <div className={styles.icon}>{s.icon}</div>

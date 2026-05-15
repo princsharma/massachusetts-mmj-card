@@ -42,7 +42,7 @@ export function Testimonials() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={styles.summary} aria-label="Customer rating summary">
+        <div className={styles.summary} role="group" aria-label="Customer rating summary">
           <span className={styles.stars} aria-hidden="true">
             ★★★★★
           </span>
@@ -66,7 +66,7 @@ export function Testimonials() {
         <div className={styles.grid}>
           {testimonials.map((t) => (
             <article key={t.name} className={styles.card}>
-              <div className={styles.cardStars} aria-label="5 out of 5 stars">
+              <div className={styles.cardStars} role="img" aria-label="5 out of 5 stars">
                 ★★★★★
               </div>
               <p className={styles.quote}>{t.quote}</p>
@@ -82,7 +82,7 @@ export function Testimonials() {
                     loading="lazy"
                   />
                   <div>
-                    <strong>{t.name}</strong>
+                    <h3 className={styles.name}>{t.name}</h3>
                     <small>
                       <MapPinIcon />
                       {t.city}

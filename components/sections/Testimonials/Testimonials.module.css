@@ -138,10 +138,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
-.author strong {
+.name {
   display: block;
+  margin: 0;
+  font-family: inherit;
   font-size: 0.92rem;
   font-weight: 700;
+  line-height: 1.3;
+  color: inherit;
 }
 .author small {
   font-size: 0.78rem;
